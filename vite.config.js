@@ -2,8 +2,8 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import ssr from "vite-plugin-ssr/plugin";
 import { cjsInterop } from "vite-plugin-cjs-interop";
-import vercel from "vite-plugin-vercel";
-import vercelSsr from "@magne4000/vite-plugin-vercel-ssr";
+// import vercel from "vite-plugin-vercel";
+// import vercelSsr from "@magne4000/vite-plugin-vercel-ssr";
 
 export default defineConfig(async ({ command, mode }) => {
   console.log("defineConfig", command, mode);
@@ -12,7 +12,7 @@ export default defineConfig(async ({ command, mode }) => {
       react(),
       ssr({
         // Use the default pre-render config:
-        prerender: true,
+        // prerender: true,
         ...(process.env.NODE_ENV === "production"
           ? {
               noExternal: [
@@ -29,8 +29,8 @@ export default defineConfig(async ({ command, mode }) => {
           // "react-bootstrap/*"
         ],
       }),
-      vercel(),
-      vercelSsr(),
+      // vercel(),
+      // vercelSsr(),
     ],
   };
 });

@@ -1,6 +1,12 @@
 Node.js version: `18.15.0`.
 
-## Origianl error
+## Error object
+
+```
+node repro-syntax-error/load-2.js
+```
+
+## Original error
 
 Run:
 
@@ -87,3 +93,17 @@ SyntaxError: Unexpected token 'export'
 `
 }
 ```
+
+## Node.js behavior
+
+Node.js adds the following preamble to `err.stack`:
+
+```
+/home/romu/tmp/vite-ssr-project/node_modules/.pnpm/@mui+material@5.14.4_@emotion+react@11.11.1_@emotion+styled@11.11.0_@types+react@18.2.20_react-dom@18.2.0_react@18.2.0/node_modules/@mui/material/Button/index.js:3
+export { default } from './Button';
+^^^^^^
+```
+
+This behavior of Node.js seems erratic, see reproduction at `./repro-syntax-error/`.
+
+Node.js version: `18.15.0`.

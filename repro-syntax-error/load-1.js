@@ -1,5 +1,6 @@
 try {
-  await import("../node_modules/@mui/material/Button/index.js")
+  // Preamble *not* added to err.stack
+  await import('./syntax-error.js')
 } catch(err) {
   console.log(
     [
